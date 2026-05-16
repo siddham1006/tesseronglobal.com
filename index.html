@@ -4,878 +4,232 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tesseron Global — Enterprise Technology Consulting</title>
-<meta name="description" content="Tesseron Global delivers enterprise SaaS implementation, cybersecurity assessments, digital transformation, and change management for organizations worldwide.">
+<meta name="description" content="Tesseron Global delivers cybersecurity assessments, Workday implementation, change management, and programme delivery for enterprises worldwide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy: #1B3A5C;
-    --navy-dark: #122843;
-    --navy-light: #2a5080;
-    --navy-pale: #EBF1F8;
-    --gold: #C9A96E;
-    --gold-light: #E8D5B0;
-    --off-white: #F8F7F4;
-    --white: #FFFFFF;
-    --text-primary: #0F1E2E;
-    --text-secondary: #4A5C6E;
-    --text-muted: #8A9BAC;
-    --border: rgba(27, 58, 92, 0.12);
-    --border-strong: rgba(27, 58, 92, 0.25);
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'DM Sans', sans-serif;
+    --navy: #1B3A5C; --navy-dark: #122843; --navy-light: #2a5080; --navy-pale: #EBF1F8;
+    --gold: #C9A96E; --gold-light: #E8D5B0; --off-white: #F8F7F4; --white: #FFFFFF;
+    --text-primary: #0F1E2E; --text-secondary: #4A5C6E; --text-muted: #8A9BAC;
+    --border: rgba(27,58,92,0.12); --border-strong: rgba(27,58,92,0.25);
+    --font-display: 'Cormorant Garamond', Georgia, serif; --font-body: 'DM Sans', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--white);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  body { font-family: var(--font-body); background: var(--white); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
 
   /* NAV */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.3s ease;
-  }
-
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-
-  .nav-logo img {
-    height: 36px;
-    width: auto;
-  }
-
-  .nav-logo-text {
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 15px;
-    letter-spacing: 0.12em;
-    color: var(--navy);
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 34px; width: 34px; object-fit: contain; display: block; flex-shrink: 0; }
+  .nav-logo-text { font-weight: 500; font-size: 13px; letter-spacing: 0.12em; color: var(--navy); text-transform: uppercase; line-height: 1; }
+  .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; color: var(--text-secondary); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--navy); }
-
-  .nav-cta {
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.1em !important;
-    color: var(--white) !important;
-    background: var(--navy);
-    padding: 10px 22px;
-    border-radius: 2px;
-    transition: background 0.2s !important;
-  }
-
+  .nav-cta { color: var(--white) !important; background: var(--navy); padding: 10px 22px; border-radius: 2px; }
   .nav-cta:hover { background: var(--navy-dark) !important; color: var(--white) !important; }
-
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--navy); transition: all 0.3s; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--navy); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 2rem 80px;
-    position: relative;
-    background: var(--white);
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .hero-bg-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(27,58,92,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(27,58,92,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .hero-bg-shape {
-    position: absolute;
-    right: -100px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 600px;
-    height: 600px;
-    opacity: 0.04;
-  }
-
-  .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 2rem;
-  }
-
-  .hero-eyebrow-line {
-    width: 32px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .hero-eyebrow-text {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 5vw, 5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--navy);
-  }
-
-  .hero-desc {
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--text-secondary);
-    line-height: 1.75;
-    margin-bottom: 2.5rem;
-    max-width: 460px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--navy);
-    color: var(--white);
-    padding: 14px 28px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.2s;
-  }
-
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 2rem 80px; position: relative; background: var(--white); overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+  .hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(27,58,92,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(27,58,92,0.04) 1px,transparent 1px); background-size: 60px 60px; }
+  .hero-bg-shape { position: absolute; right: -100px; top: 50%; transform: translateY(-50%); width: 600px; height: 600px; opacity: 0.04; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 2rem; }
+  .hero-eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+  .hero-eyebrow-text { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(3rem,5vw,5rem); font-weight: 300; line-height: 1.1; color: var(--text-primary); margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: var(--navy); }
+  .hero-desc { font-size: 16px; font-weight: 300; color: var(--text-secondary); line-height: 1.75; margin-bottom: 2.5rem; max-width: 460px; }
+  .hero-actions { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); padding: 14px 28px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.2s; }
   .btn-primary:hover { background: var(--navy-dark); transform: translateY(-1px); }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--navy);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--navy);
-    transition: opacity 0.2s;
-  }
-
+  .btn-secondary { display: inline-flex; align-items: center; color: var(--navy); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid var(--navy); transition: opacity 0.2s; }
   .btn-secondary:hover { opacity: 0.6; }
-
-  .hero-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5px;
-    background: var(--border);
-    border: 1.5px solid var(--border-strong);
-  }
-
-  .hero-stat {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    text-align: center;
-  }
-
-  .hero-stat-number {
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    font-weight: 300;
-    color: var(--navy);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-stat-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+  .hero-visual { display: flex; align-items: center; justify-content: center; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--border); border: 1.5px solid var(--border-strong); width: 100%; }
+  .hero-stat { background: var(--white); padding: 2.5rem 2rem; text-align: center; }
+  .hero-stat-number { font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 0.5rem; }
+  .hero-stat-label { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
 
   /* MARQUEE */
-  .marquee-section {
-    background: var(--navy);
-    padding: 1rem 0;
-    overflow: hidden;
-  }
-
-  .marquee-track {
-    display: flex;
-    gap: 4rem;
-    animation: marquee 30s linear infinite;
-    white-space: nowrap;
-  }
-
-  .marquee-item {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .marquee-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+  .marquee-section { background: var(--navy); padding: 1rem 0; overflow: hidden; }
+  .marquee-track { display: flex; gap: 4rem; animation: marquee 35s linear infinite; white-space: nowrap; }
+  .marquee-item { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); flex-shrink: 0; display: flex; align-items: center; gap: 2rem; }
+  .marquee-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   /* SECTIONS */
   section { padding: 120px 2rem; }
-
   .section-inner { max-width: 1200px; margin: 0 auto; }
-
   .section-header { margin-bottom: 5rem; }
-
-  .section-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 1.5rem;
-  }
-
+  .section-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
   .section-eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
-
-  .section-eyebrow-text {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    font-weight: 300;
-    color: var(--text-primary);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-  }
-
+  .section-eyebrow-text { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .section-title { font-family: var(--font-display); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 300; color: var(--text-primary); line-height: 1.15; }
   .section-title em { font-style: italic; color: var(--navy); }
-
-  .section-subtitle {
-    margin-top: 1.25rem;
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--text-secondary);
-    max-width: 560px;
-    line-height: 1.75;
-  }
+  .section-subtitle { margin-top: 1.25rem; font-size: 16px; font-weight: 300; color: var(--text-secondary); max-width: 560px; line-height: 1.75; }
 
   /* ABOUT */
   .about { background: var(--off-white); }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .about-content p {
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--text-secondary);
-    line-height: 1.85;
-    margin-bottom: 1.5rem;
-  }
-
-  .about-content p strong {
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  .about-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--border-strong);
-  }
-
-  .pillar {
-    padding: 2rem 2rem;
-    border-bottom: 1px solid var(--border);
-    background: var(--white);
-    transition: background 0.2s;
-  }
-
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .about-content p { font-size: 16px; font-weight: 300; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; }
+  .about-content p strong { color: var(--text-primary); font-weight: 500; }
+  .about-pillars { display: flex; flex-direction: column; border: 1px solid var(--border-strong); }
+  .pillar { padding: 2rem; border-bottom: 1px solid var(--border); background: var(--white); transition: background 0.2s; }
   .pillar:last-child { border-bottom: none; }
   .pillar:hover { background: var(--navy-pale); }
+  .pillar-num { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.75rem; }
+  .pillar-title { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--navy); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .pillar-desc { font-size: 14px; font-weight: 300; color: var(--text-secondary); line-height: 1.65; }
 
-  .pillar-num {
+  /* PEDIGREE STRIP */
+  .pedigree {
+    margin-top: 5rem;
+    border-top: 1px solid var(--border-strong);
+    padding-top: 3rem;
+  }
+  .pedigree-statement {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
     font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-style: italic;
+    max-width: 800px;
+    margin-bottom: 2.5rem;
   }
-
-  .pillar-title {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+  .pedigree-statement em {
+    font-style: normal;
     color: var(--navy);
+    font-weight: 400;
+  }
+  .pedigree-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .pedigree-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    color: var(--navy);
+    border: 1px solid var(--border-strong);
+    padding: 8px 16px;
+    border-radius: 2px;
+    background: var(--white);
+    transition: background 0.2s, border-color 0.2s;
   }
-
-  .pillar-desc {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
+  .pedigree-tag:hover { background: var(--navy-pale); border-color: var(--navy); }
 
   /* SERVICES */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: var(--border);
-    border: 1.5px solid var(--border-strong);
-    margin-top: 4rem;
-  }
-
-  .service-card {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    transition: background 0.25s;
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .service-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--navy);
-    transition: width 0.35s ease;
-  }
-
+  .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5px; background: var(--border); border: 1.5px solid var(--border-strong); margin-top: 4rem; }
+  .service-card { background: var(--white); padding: 3rem 2.5rem; transition: background 0.25s; position: relative; overflow: hidden; }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--navy); transition: width 0.35s ease; }
   .service-card:hover { background: var(--navy-pale); }
   .service-card:hover::after { width: 100%; }
+  .service-tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-light); padding: 4px 10px; border-radius: 2px; margin-bottom: 1.5rem; }
+  .service-icon { width: 48px; height: 48px; border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; border-radius: 2px; }
+  .service-icon svg { width: 22px; height: 22px; stroke: var(--navy); fill: none; stroke-width: 1.5; }
+  .service-title { font-family: var(--font-display); font-size: 1.75rem; font-weight: 400; color: var(--text-primary); margin-bottom: 1rem; line-height: 1.2; }
+  .service-desc { font-size: 14px; font-weight: 300; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.5rem; }
+  .service-bullets { display: flex; flex-direction: column; gap: 0.5rem; }
+  .service-bullet { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; color: var(--text-secondary); }
+  .service-bullet-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); margin-top: 7px; flex-shrink: 0; }
 
-  .service-icon {
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--border-strong);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    border-radius: 2px;
-  }
-
-  .service-icon svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 1.5; }
-
-  .service-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.02em;
-  }
-
-  .service-desc {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  /* WHY US */
+  /* WHY */
   .why { background: var(--navy); }
-
   .why .section-title { color: var(--white); }
   .why .section-title em { color: var(--gold); }
   .why .section-eyebrow-text { color: var(--gold); }
   .why .section-eyebrow-line { background: var(--gold); }
-  .why .section-subtitle { color: rgba(255,255,255,0.6); }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    background: rgba(255,255,255,0.08);
-    margin-top: 4rem;
-  }
-
-  .why-card {
-    background: var(--navy);
-    padding: 2.5rem 1.75rem;
-    border: 1px solid rgba(255,255,255,0.06);
-    transition: background 0.2s;
-  }
-
+  .why .section-subtitle { color: rgba(255,255,255,0.5); }
+  .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: rgba(255,255,255,0.06); margin-top: 4rem; }
+  .why-card { background: var(--navy); padding: 2.5rem 1.75rem; border: 1px solid rgba(255,255,255,0.05); transition: background 0.2s; }
   .why-card:hover { background: var(--navy-light); }
+  .why-num { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 1rem; opacity: 0.6; }
+  .why-title { font-size: 12px; font-weight: 500; color: var(--white); letter-spacing: 0.06em; margin-bottom: 0.75rem; text-transform: uppercase; }
+  .why-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
-  .why-num {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 1rem;
-    opacity: 0.7;
-  }
-
-  .why-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.75rem;
-  }
-
-  .why-desc {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.7;
-  }
-
-  /* TEAM */
-  .team { background: var(--off-white); }
-
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: var(--border);
-    border: 1.5px solid var(--border-strong);
-  }
-
-  .team-card {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    transition: background 0.2s;
-  }
-
-  .team-card:hover { background: var(--navy-pale); }
-
-  .team-avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.04em;
-  }
-
-  .team-name {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  .team-role {
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-
-  .team-org {
-    font-size: 12px;
-    font-weight: 300;
-    color: var(--text-muted);
-  }
+  /* PRESENCE STRIP */
+  .presence-strip { background: var(--navy-pale); border-top: 1px solid var(--border-strong); border-bottom: 1px solid var(--border-strong); padding: 1.75rem 2rem; }
+  .presence-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+  .presence-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+  .presence-locations { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+  .presence-location { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 400; color: var(--navy); }
+  .presence-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .presence-divider { width: 1px; height: 14px; background: var(--border-strong); }
 
   /* CONTACT */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .contact-info p {
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--text-secondary);
-    line-height: 1.75;
-    margin-bottom: 2.5rem;
-  }
-
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-info p { font-size: 16px; font-weight: 300; color: var(--text-secondary); line-height: 1.75; margin-bottom: 2.5rem; }
   .contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
-
-  .contact-detail {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .contact-detail-icon {
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--border-strong);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border-radius: 2px;
-  }
-
+  .contact-detail { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-detail-icon { width: 36px; height: 36px; border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 2px; }
   .contact-detail-icon svg { width: 16px; height: 16px; stroke: var(--navy); fill: none; stroke-width: 1.5; }
-
-  .contact-detail-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 2px;
-  }
-
-  .contact-detail-value {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--text-primary);
-  }
-
+  .contact-detail-label { font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px; }
+  .contact-detail-value { font-size: 14px; font-weight: 400; color: var(--text-primary); }
   .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-
   .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-
-  .form-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  .form-input {
-    padding: 14px 16px;
-    border: 1px solid var(--border-strong);
-    border-radius: 2px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-primary);
-    background: var(--white);
-    transition: border-color 0.2s;
-    outline: none;
-    width: 100%;
-  }
-
+  .form-label { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+  .form-input { padding: 14px 16px; border: 1px solid var(--border-strong); border-radius: 2px; font-family: var(--font-body); font-size: 14px; font-weight: 300; color: var(--text-primary); background: var(--white); transition: border-color 0.2s; outline: none; width: 100%; }
   .form-input:focus { border-color: var(--navy); }
-
   textarea.form-input { resize: vertical; min-height: 120px; }
-
-  .form-select {
-    padding: 14px 16px;
-    border: 1px solid var(--border-strong);
-    border-radius: 2px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-primary);
-    background: var(--white);
-    outline: none;
-    width: 100%;
-    appearance: none;
-    cursor: pointer;
-  }
-
-  .form-submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: var(--navy);
-    color: var(--white);
-    padding: 15px 28px;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-
+  .form-select { padding: 14px 16px; border: 1px solid var(--border-strong); border-radius: 2px; font-family: var(--font-body); font-size: 14px; font-weight: 300; color: var(--text-primary); background: var(--white); outline: none; width: 100%; appearance: none; cursor: pointer; }
+  .form-submit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--navy); color: var(--white); padding: 15px 28px; font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: background 0.2s, transform 0.2s; width: 100%; margin-top: 0.5rem; }
   .form-submit:hover { background: var(--navy-dark); transform: translateY(-1px); }
 
   /* FOOTER */
-  footer {
-    background: var(--navy-dark);
-    padding: 4rem 2rem;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
-  }
-
-  .footer-brand p {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.7;
-    max-width: 300px;
-    margin-top: 1.25rem;
-  }
-
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .footer-logo img { height: 32px; filter: brightness(0) invert(1); opacity: 0.85; }
-
-  .footer-logo-text {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.85);
-    text-transform: uppercase;
-  }
-
-  .footer-col-title {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-  }
-
+  footer { background: var(--navy-dark); padding: 4rem 2rem 2.5rem; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+  .footer-logo-img { height: 32px; width: 32px; object-fit: contain; display: block; flex-shrink: 0; filter: brightness(0) invert(1); opacity: 0.9; }
+  .footer-logo-text { font-size: 13px; font-weight: 500; letter-spacing: 0.15em; color: rgba(255,255,255,0.85); text-transform: uppercase; line-height: 1; }
+  .footer-brand p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.38); line-height: 1.75; max-width: 300px; }
+  .footer-col-title { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
   .footer-links { display: flex; flex-direction: column; gap: 0.65rem; }
-
-  .footer-links a {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .footer-links a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--white); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+  .footer-bottom p { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.22); }
 
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-bottom p {
-    font-size: 12px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.3);
-  }
-
-  .footer-cin {
-    font-size: 11px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.2);
-    letter-spacing: 0.05em;
-  }
-
-  /* MOBILE NAV */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 2rem;
-    flex-direction: column;
-    gap: 1rem;
-    z-index: 99;
-  }
-
+  /* MOBILE */
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; z-index: 99; }
   .mobile-menu.open { display: flex; }
-
-  .mobile-menu a {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
+  .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
 
   /* ANIMATIONS */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; gap: 4rem; }
-    .hero-visual { justify-content: flex-start; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2,1fr); }
     .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
   }
-
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
     section { padding: 80px 1.5rem; }
     .services-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
-    .team-grid { grid-template-columns: 1fr; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
     .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .pedigree-statement { font-size: 1.2rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
@@ -885,7 +239,6 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#team">Team</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
     <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
@@ -897,7 +250,6 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#team" onclick="closeMobile()">Team</a>
   <a href="#contact" onclick="closeMobile()">Get in Touch</a>
 </div>
 
@@ -918,29 +270,29 @@
         <span class="hero-eyebrow-text">Enterprise Technology Consulting</span>
       </div>
       <h1>Where systems<br><em>meet strategy</em></h1>
-      <p class="hero-desc">We implement, optimize, and operate the technology that drives modern enterprises — from SaaS platforms and data systems to cybersecurity and digital transformation.</p>
+      <p class="hero-desc">We secure, implement, and transform the technology that drives modern enterprises — backed by specialists who have done this work at the highest levels.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">Start a Conversation →</a>
         <a href="#services" class="btn-secondary">Our Services</a>
       </div>
     </div>
-    <div class="hero-visual fade-up" style="transition-delay: 0.15s">
+    <div class="hero-visual fade-up" style="transition-delay:0.15s">
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="hero-stat-number">5+</div>
-          <div class="hero-stat-label">Years Delivering</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-number">3</div>
-          <div class="hero-stat-label">Countries Served</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-number">15+</div>
-          <div class="hero-stat-label">Projects Delivered</div>
+          <div class="hero-stat-number">30+</div>
+          <div class="hero-stat-label">Years Combined Experience</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-number">6</div>
-          <div class="hero-stat-label">Expert Specialists</div>
+          <div class="hero-stat-label">Domain Specialists</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">3</div>
+          <div class="hero-stat-label">Geographies</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">4</div>
+          <div class="hero-stat-label">Practice Areas</div>
         </div>
       </div>
     </div>
@@ -950,22 +302,22 @@
 <!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track">
-    <span class="marquee-item">SaaS Implementation <span class="marquee-dot"></span></span>
     <span class="marquee-item">Cybersecurity Assessment <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Data & MDM <span class="marquee-dot"></span></span>
+    <span class="marquee-item">DPDP Compliance <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Workday Implementation <span class="marquee-dot"></span></span>
     <span class="marquee-item">Change Management <span class="marquee-dot"></span></span>
     <span class="marquee-item">Digital Transformation <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Project Delivery <span class="marquee-dot"></span></span>
-    <span class="marquee-item">DPDP Compliance <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Workday <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Programme Delivery <span class="marquee-dot"></span></span>
+    <span class="marquee-item">IT Audit <span class="marquee-dot"></span></span>
     <span class="marquee-item">SaaS Implementation <span class="marquee-dot"></span></span>
     <span class="marquee-item">Cybersecurity Assessment <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Data & MDM <span class="marquee-dot"></span></span>
+    <span class="marquee-item">DPDP Compliance <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Workday Implementation <span class="marquee-dot"></span></span>
     <span class="marquee-item">Change Management <span class="marquee-dot"></span></span>
     <span class="marquee-item">Digital Transformation <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Project Delivery <span class="marquee-dot"></span></span>
-    <span class="marquee-item">DPDP Compliance <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Workday <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Programme Delivery <span class="marquee-dot"></span></span>
+    <span class="marquee-item">IT Audit <span class="marquee-dot"></span></span>
+    <span class="marquee-item">SaaS Implementation <span class="marquee-dot"></span></span>
   </div>
 </div>
 
@@ -980,35 +332,49 @@
         </div>
         <h2 class="section-title">Built by practitioners,<br><em>not theorists</em></h2>
         <br>
-        <p>Tesseron Global is a technology consulting firm founded by specialists who have spent years doing the actual work — implementing enterprise systems, leading complex change programs, and hardening organizations against cyber threats.</p>
-        <p>The name draws from the <strong>tesseract</strong> — a four-dimensional cube. Like our namesake, we operate across multiple dimensions simultaneously: technical depth, strategic clarity, execution discipline, and human adoption.</p>
-        <p>We are headquartered in Noida, India with consulting presence in the United States, serving mid-market and enterprise clients who need reliable, experienced delivery partners — not slide decks.</p>
+        <p>Tesseron Global is a technology consulting firm founded by specialists who have spent years doing the actual work — implementing enterprise systems, securing organisations against cyber threats, and leading complex transformation programmes at scale.</p>
+        <p>The name draws from the <strong>tesseract</strong> — a four-dimensional cube that exists across multiple dimensions simultaneously. Like our namesake, we operate across technical depth, strategic clarity, execution discipline, and human adoption — all at once.</p>
+        <p>With a team operating across India, the United States, and Hong Kong, we deliver to clients wherever they are — bringing global delivery standards and enterprise-grade rigour to every engagement.</p>
         <br>
         <a href="#contact" class="btn-primary">Work With Us →</a>
       </div>
-      <div class="about-pillars fade-up" style="transition-delay: 0.1s">
+      <div class="about-pillars fade-up" style="transition-delay:0.1s">
         <div class="pillar">
           <div class="pillar-num">01</div>
           <div class="pillar-title">Execution First</div>
-          <div class="pillar-desc">We are delivery-oriented. Every engagement ends with working systems, trained teams, and measurable outcomes.</div>
+          <div class="pillar-desc">Every engagement ends with working systems, trained teams, and measurable outcomes — not slide decks.</div>
         </div>
         <div class="pillar">
           <div class="pillar-num">02</div>
           <div class="pillar-title">Technical Depth</div>
-          <div class="pillar-desc">Our team holds certifications and real-world experience across the platforms we implement — not just consulting frameworks.</div>
+          <div class="pillar-desc">Our specialists hold certifications and carry real-world delivery experience from some of the world's most demanding organisations.</div>
         </div>
         <div class="pillar">
           <div class="pillar-num">03</div>
-          <div class="pillar-title">Global Perspective</div>
-          <div class="pillar-desc">With specialists across India and the US, we bring global delivery standards to every engagement regardless of geography.</div>
+          <div class="pillar-title">Global Reach</div>
+          <div class="pillar-desc">Specialists across three regions mean we understand local regulatory environments and deliver without friction across geographies.</div>
         </div>
         <div class="pillar">
           <div class="pillar-num">04</div>
           <div class="pillar-title">Honest Partnership</div>
-          <div class="pillar-desc">We tell clients what they need to hear, not what they want to hear. Long-term trust over short-term comfort.</div>
+          <div class="pillar-desc">We tell clients what they need to hear. Long-term trust over short-term comfort — every time.</div>
         </div>
       </div>
     </div>
+
+    <!-- PEDIGREE STRIP -->
+    <div class="pedigree fade-up">
+      <p class="pedigree-statement">Our team has served as practitioners and delivery leads across <em>global financial institutions, Big 4 consulting firms, Fortune 500 technology companies, leading e-commerce organisations,</em> and government bodies — across India, the United States, and beyond.</p>
+      <div class="pedigree-tags">
+        <span class="pedigree-tag">Global Financial Services</span>
+        <span class="pedigree-tag">Big 4 Consulting</span>
+        <span class="pedigree-tag">Enterprise Technology</span>
+        <span class="pedigree-tag">E-commerce &amp; Retail</span>
+        <span class="pedigree-tag">Banking &amp; Payments</span>
+        <span class="pedigree-tag">Government &amp; Public Sector</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1020,51 +386,65 @@
         <div class="section-eyebrow-line"></div>
         <span class="section-eyebrow-text">What We Do</span>
       </div>
-      <h2 class="section-title">Services built for<br><em>enterprise complexity</em></h2>
-      <p class="section-subtitle">We operate across six practice areas — each staffed by specialists who have delivered in the real world.</p>
+      <h2 class="section-title">Four practice areas.<br><em>One accountable team.</em></h2>
+      <p class="section-subtitle">Each practice is staffed by specialists who have delivered at enterprise scale — not generalists covering everything loosely.</p>
     </div>
     <div class="services-grid">
       <div class="service-card fade-up">
+        <div class="service-tag">Flagship Practice</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="service-title">Cybersecurity &amp; Compliance</div>
+        <div class="service-desc">End-to-end security assessments, IT audits, and compliance readiness reviews — including DPDP, the framework every Indian organisation now needs to act on.</div>
+        <div class="service-bullets">
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Cybersecurity assessments &amp; vulnerability reviews</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>DPDP readiness &amp; data protection compliance</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>IT audit &amp; risk assessment</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Security posture reporting &amp; remediation roadmaps</div>
+        </div>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.07s">
+        <div class="service-tag">SaaS &amp; Platforms</div>
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
         <div class="service-title">SaaS Implementation</div>
-        <div class="service-desc">End-to-end implementation of enterprise SaaS platforms including Workday, MDM/PIM systems, and cloud productivity suites. Configuration, data migration, and go-live support.</div>
-      </div>
-      <div class="service-card fade-up" style="transition-delay:0.05s">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="service-desc">Enterprise SaaS implementations led by certified specialists — with a particular focus on Workday, where we bring both technical configuration and the change management needed to make adoption stick.</div>
+        <div class="service-bullets">
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Workday HCM &amp; Finance implementation</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>MDM &amp; PIM platform delivery</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Data model design &amp; governance</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Integration, migration &amp; go-live support</div>
         </div>
-        <div class="service-title">Cybersecurity & DPDP Assessment</div>
-        <div class="service-desc">Comprehensive security audits, vulnerability assessments, and DPDP compliance reviews. We help organizations understand their risk posture and build remediation roadmaps.</div>
       </div>
-      <div class="service-card fade-up" style="transition-delay:0.1s">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-        </div>
-        <div class="service-title">Data & MDM Governance</div>
-        <div class="service-desc">Master Data Management strategy, data model design, governance frameworks, and product information management for global retail and enterprise clients.</div>
-      </div>
-      <div class="service-card fade-up" style="transition-delay:0.05s">
+      <div class="service-card fade-up" style="transition-delay:0.07s">
+        <div class="service-tag">People &amp; Process</div>
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <div class="service-title">Change Management</div>
-        <div class="service-desc">Structured change strategy, stakeholder engagement, training program design, and adoption measurement for large-scale technology transformations.</div>
+        <div class="service-title">Change Management &amp; Transformation</div>
+        <div class="service-desc">Technology only delivers value when people adopt it. We design and run the change programmes, training structures, and process improvements that make transformation real — not just reported.</div>
+        <div class="service-bullets">
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Change strategy &amp; stakeholder engagement</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Training design &amp; adoption measurement</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Process analysis &amp; workflow optimisation</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Business analysis &amp; requirements management</div>
+        </div>
       </div>
-      <div class="service-card fade-up" style="transition-delay:0.1s">
+      <div class="service-card fade-up" style="transition-delay:0.14s">
+        <div class="service-tag">Delivery</div>
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <div class="service-title">Digital Transformation</div>
-        <div class="service-desc">Process analysis, automation design, workflow optimization, and technology roadmapping to modernize operations and drive measurable efficiency gains.</div>
-      </div>
-      <div class="service-card fade-up" style="transition-delay:0.15s">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <div class="service-title">Project &amp; Programme Delivery</div>
+        <div class="service-desc">For organisations that need a trusted delivery partner to run complex, multi-stakeholder engagements from end to end — with full accountability, clear governance, and no surprises.</div>
+        <div class="service-bullets">
+          <div class="service-bullet"><div class="service-bullet-dot"></div>End-to-end programme management</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Risk management &amp; governance frameworks</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Agile &amp; structured delivery methodologies</div>
+          <div class="service-bullet"><div class="service-bullet-dot"></div>Stakeholder reporting &amp; leadership alignment</div>
         </div>
-        <div class="service-title">Project & Programme Delivery</div>
-        <div class="service-desc">Agile and structured project management across complex, multi-stakeholder engagements. Risk management, governance setup, and reporting that keeps leadership informed.</div>
       </div>
     </div>
   </div>
@@ -1084,79 +464,41 @@
     <div class="why-grid">
       <div class="why-card fade-up">
         <div class="why-num">01</div>
-        <div class="why-title">Practitioners, not generalists</div>
-        <div class="why-desc">Every specialist on our team holds relevant certifications and has done the work in production environments — not just studied it.</div>
+        <div class="why-title">Specialists, not generalists</div>
+        <div class="why-desc">Every person on our team holds relevant certifications and has delivered in production at recognised organisations — not just studied the theory.</div>
       </div>
       <div class="why-card fade-up" style="transition-delay:0.05s">
         <div class="why-num">02</div>
-        <div class="why-title">India delivery, global standards</div>
-        <div class="why-desc">Enterprise-grade quality and communication at a cost structure that makes sense for organizations of all sizes.</div>
+        <div class="why-title">Global delivery, boutique attention</div>
+        <div class="why-desc">Enterprise-grade quality and communication, with the responsiveness and accountability that only a focused team can provide.</div>
       </div>
       <div class="why-card fade-up" style="transition-delay:0.1s">
         <div class="why-num">03</div>
-        <div class="why-title">US presence, India depth</div>
-        <div class="why-desc">Our US-based consulting presence means seamless collaboration across time zones, with the delivery strength of our India team.</div>
+        <div class="why-title">Multi-geography capability</div>
+        <div class="why-desc">Specialists across India, the US, and Hong Kong — we understand local regulatory environments and collaborate across time zones without friction.</div>
       </div>
       <div class="why-card fade-up" style="transition-delay:0.15s">
         <div class="why-num">04</div>
-        <div class="why-title">Small team, full accountability</div>
-        <div class="why-desc">You work directly with the people doing the work. No handoffs to junior staff. No disappearing after the kickoff call.</div>
+        <div class="why-title">You work with the doers</div>
+        <div class="why-desc">No handoffs to junior staff after the kickoff. The specialists you meet are the ones who deliver — with full accountability from day one to go-live.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team" id="team">
-  <div class="section-inner">
-    <div class="section-header fade-up">
-      <div class="section-eyebrow">
-        <div class="section-eyebrow-line"></div>
-        <span class="section-eyebrow-text">Our Team</span>
-      </div>
-      <h2 class="section-title">Specialists, not<br><em>generalists</em></h2>
-      <p class="section-subtitle">Each team member brings deep domain expertise from leading organizations — available to you on-demand.</p>
-    </div>
-    <div class="team-grid">
-      <div class="team-card fade-up">
-        <div class="team-avatar">SS</div>
-        <div class="team-name">Siddham Sharma</div>
-        <div class="team-role">Founder & Implementation Lead</div>
-        <div class="team-org">SaaS Implementation · MDM/PIM · Change Management</div>
-      </div>
-      <div class="team-card fade-up" style="transition-delay:0.05s">
-        <div class="team-avatar">AA</div>
-        <div class="team-name">Arnav</div>
-        <div class="team-role">AI & Node.js Developer</div>
-        <div class="team-org">AI Engineering · Full Stack Development · Cisco</div>
-      </div>
-      <div class="team-card fade-up" style="transition-delay:0.1s">
-        <div class="team-avatar">VA</div>
-        <div class="team-name">Vipin</div>
-        <div class="team-role">Cybersecurity Specialist</div>
-        <div class="team-org">Security Assessment · Compliance · Flipkart</div>
-      </div>
-      <div class="team-card fade-up" style="transition-delay:0.05s">
-        <div class="team-avatar">AK</div>
-        <div class="team-name">Ayushman</div>
-        <div class="team-role">Business Analyst</div>
-        <div class="team-org">Requirements · Process Design · Global Payments</div>
-      </div>
-      <div class="team-card fade-up" style="transition-delay:0.1s">
-        <div class="team-avatar">AN</div>
-        <div class="team-name">Anushree</div>
-        <div class="team-role">Change Management</div>
-        <div class="team-org">Transformation · Adoption · Barclays</div>
-      </div>
-      <div class="team-card fade-up" style="transition-delay:0.15s">
-        <div class="team-avatar">DI</div>
-        <div class="team-name">Diana</div>
-        <div class="team-role">US Consulting Lead</div>
-        <div class="team-org">Change Management · Client Relations · Boston, MA</div>
-      </div>
+<!-- PRESENCE -->
+<div class="presence-strip">
+  <div class="presence-inner">
+    <span class="presence-label">Operating across</span>
+    <div class="presence-locations">
+      <div class="presence-location"><div class="presence-dot"></div>India</div>
+      <div class="presence-divider"></div>
+      <div class="presence-location"><div class="presence-dot"></div>United States</div>
+      <div class="presence-divider"></div>
+      <div class="presence-location"><div class="presence-dot"></div>Hong Kong</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1168,30 +510,24 @@
           <span class="section-eyebrow-text">Get in Touch</span>
         </div>
         <h2 class="section-title" style="margin-bottom:1.5rem">Let's talk about<br><em>your project</em></h2>
-        <p>Whether you have a defined scope or are still exploring options, we're happy to have an honest conversation about whether we're the right fit — and if not, point you in the right direction.</p>
+        <p>Whether you have a defined scope or are still exploring options, we're happy to have an honest conversation about whether we're the right fit for your organisation.</p>
         <div class="contact-details">
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div>
               <div class="contact-detail-label">Email</div>
               <div class="contact-detail-value">hello@tesseronglobal.com</div>
             </div>
           </div>
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
               <div class="contact-detail-label">Headquarters</div>
               <div class="contact-detail-value">Noida, Uttar Pradesh, India</div>
             </div>
           </div>
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div>
               <div class="contact-detail-label">Response Time</div>
               <div class="contact-detail-value">Within 24 hours</div>
@@ -1216,12 +552,10 @@
           <label class="form-label">Service Area</label>
           <select class="form-select">
             <option value="">Select a service...</option>
-            <option>SaaS Implementation</option>
-            <option>Cybersecurity & DPDP Assessment</option>
-            <option>Data & MDM Governance</option>
-            <option>Change Management</option>
-            <option>Digital Transformation</option>
-            <option>Project & Programme Delivery</option>
+            <option>Cybersecurity &amp; Compliance</option>
+            <option>SaaS Implementation (Workday)</option>
+            <option>Change Management &amp; Transformation</option>
+            <option>Project &amp; Programme Delivery</option>
             <option>Not sure yet</option>
           </select>
         </div>
@@ -1240,69 +574,51 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="Tesseron_Global_Logo.png" alt="Tesseron Global">
+        <img src="Tesseron_Global_Logo.png" alt="Tesseron Global" class="footer-logo-img">
         <span class="footer-logo-text">Tesseron Global</span>
       </div>
-      <p>A consulting and technology services firm delivering enterprise SaaS implementation, cybersecurity, and digital transformation for organizations worldwide.</p>
+      <p>A technology consulting firm delivering cybersecurity, SaaS implementation, change management, and programme delivery for enterprises across India, the US, and Hong Kong.</p>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
       <div class="footer-links">
+        <a href="#services">Cybersecurity &amp; Compliance</a>
         <a href="#services">SaaS Implementation</a>
-        <a href="#services">Cybersecurity & DPDP</a>
-        <a href="#services">Data & MDM</a>
         <a href="#services">Change Management</a>
-        <a href="#services">Digital Transformation</a>
-        <a href="#services">Project Delivery</a>
+        <a href="#services">Programme Delivery</a>
       </div>
     </div>
     <div>
       <div class="footer-col-title">Company</div>
       <div class="footer-links">
         <a href="#about">About Us</a>
-        <a href="#team">Our Team</a>
         <a href="#contact">Contact</a>
-        <a href="https://www.linkedin.com/company/tesseron-global" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/company/tesseron-global" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2025 Tesseron Global Private Limited. All rights reserved.</p>
-    <p class="footer-cin">CIN: U74909UP2025PTC223745 · GSTIN: 09AALCT8950G1ZR</p>
+    <p>CIN: U74909UP2025PTC223745 &nbsp;·&nbsp; GSTIN: 09AALCT8950G1ZR</p>
   </div>
 </footer>
 
 <script>
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
-
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-
-  function closeMobile() {
-    mobileMenu.classList.remove('open');
-  }
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  function closeMobile() { mobileMenu.classList.remove('open'); }
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
     });
   });
 
@@ -1310,19 +626,11 @@
     const btn = document.querySelector('.form-submit');
     btn.textContent = 'Message Sent ✓';
     btn.style.background = '#0F6E56';
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = '';
-    }, 3000);
+    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
   }
 
   window.addEventListener('scroll', () => {
-    const nav = document.getElementById('nav');
-    if (window.scrollY > 20) {
-      nav.style.boxShadow = '0 1px 20px rgba(0,0,0,0.06)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
+    document.getElementById('nav').style.boxShadow = window.scrollY > 20 ? '0 1px 20px rgba(0,0,0,0.06)' : 'none';
   });
 </script>
 </body>
